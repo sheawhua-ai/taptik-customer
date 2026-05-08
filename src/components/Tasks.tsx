@@ -1,16 +1,59 @@
 import { useState } from 'react';
-import { Camera, ShoppingBag, Clock, CheckCircle2, CloudUpload, CheckCircle } from 'lucide-react';
+import { Camera, ShoppingBag, Clock, CheckCircle2, CloudUpload, CheckCircle, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import HeaderCapsule from './HeaderCapsule';
 
 export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: (s: string) => void, onRestrictedAction: (action: () => void) => void }) {
+  const [isPlanModalOpen, setIsPlanModalOpen] = useState(false);
+
+  const plans = [
+    { id: '1', title: 'K11 Musea 探店话题素材收集', tag: '视觉陈列部' },
+    { id: '2', title: '劳力士迪通拿新品素材收集', tag: '新媒体部' },
+    { id: '3', title: '海港城门店 VIP 答谢晚宴', tag: '市场公关部' }
+  ];
+
+  const handleSelectPlan = (planId: string) => {
+    setIsPlanModalOpen(false);
+    onRestrictedAction(() => onNavigate('camera'));
+  };
+
   return (
     <div className="pt-20 px-6 space-y-8 pb-32">
       <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-[#f8f9fa]/80 backdrop-blur-xl">
         <div className="flex flex-col">
-          <h1 className="text-xl font-extrabold tracking-tight text-[#2b3437]">素材任务</h1>
+          <h1 className="text-xl font-extrabold tracking-tight text-[#2b3437]">素材中心</h1>
         </div>
-        <HeaderCapsule />
       </header>
+
+      <section className="mb-10 mt-2">
+        <div className="grid grid-cols-2 gap-4">
+          <div 
+             onClick={() => onRestrictedAction(() => onNavigate('camera'))}
+             className="bg-white rounded-[20px] p-5 shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-3 active:scale-[0.98] transition-transform cursor-pointer"
+          >
+            <div className="w-14 h-14 bg-[#5157a7]/10 rounded-full flex items-center justify-center">
+              <Camera className="text-[#5157a7]" size={28} />
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-[#2b3437] text-[15px]">随手拍/上传</p>
+              <p className="text-[11px] text-[#8b959a] mt-1">入库至全局素材库</p>
+            </div>
+          </div>
+          
+          <div 
+             onClick={() => setIsPlanModalOpen(true)}
+             className="bg-gradient-to-br from-[#5157a7] to-[#404585] rounded-[20px] p-5 shadow-lg shadow-[#5157a7]/20 flex flex-col items-center justify-center gap-3 active:scale-[0.98] transition-transform cursor-pointer"
+          >
+            <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
+              <CloudUpload className="text-white" size={28} />
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-white text-[15px]">关联方案</p>
+              <p className="text-[11px] text-white/70 mt-1">上传至具体活动方案</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section>
         <div className="flex items-center justify-between mb-4">
@@ -246,6 +289,58 @@ export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: 
           </div>
         </div>
       </section>
+
+      {/* Select Plan Modal */}
+      <AnimatePresence>
+        {isPlanModalOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsPlanModalOpen(false)}
+              className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[32px] pt-6 px-6 pb-12 z-50 shadow-2xl flex flex-col max-h-[85vh] max-w-md mx-auto"
+            >
+              <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6 shrink-0 relative top-[-12px]" />
+              
+              <div className="mb-6 flex items-start justify-between">
+                <div>
+                  <h3 className="text-xl font-extrabold text-[#2b3437] leading-tight flex items-center">
+                    <CloudUpload className="mr-2 text-[#5157a7]" size={24} />
+                    选择关联方案
+                  </h3>
+                  <p className="text-xs text-[#8b959a] font-medium mt-1">请选择您要上传素材所属的具体活动</p>
+                </div>
+                <button onClick={() => setIsPlanModalOpen(false)} className="p-2 bg-gray-50 rounded-full text-gray-400">
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto space-y-3 pb-6">
+                {plans.map((plan) => (
+                  <button
+                    key={plan.id}
+                    onClick={() => handleSelectPlan(plan.id)}
+                    className="w-full text-left bg-white border border-gray-200 p-4 rounded-2xl hover:border-[#5157a7]/50 hover:bg-[#f0f1ff] active:scale-[0.98] transition-all flex flex-col"
+                  >
+                    <span className="font-bold text-[#2b3437]">{plan.title}</span>
+                    <span className="text-[10px] text-[#5157a7] bg-[#5157a7]/10 px-2 py-0.5 rounded-md mt-2 w-fit">
+                      {plan.tag}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

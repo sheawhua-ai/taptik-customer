@@ -73,12 +73,6 @@ export default function Dashboard({ onNavigate, onRestrictedAction }: { onNaviga
             <h1 className="font-bold text-lg text-[#2b3437] leading-tight">商户管理</h1>
           </div>
         </div>
-        <div className="flex items-center gap-3">
-          <button className="text-[#5157a7] hover:opacity-80 active:scale-95 transition-all">
-            <Bell size={24} />
-          </button>
-          <HeaderCapsule />
-        </div>
       </header>
 
       <section className="bg-[#e0e0ff] rounded-3xl p-6 relative overflow-hidden">

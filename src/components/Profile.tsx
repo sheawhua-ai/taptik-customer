@@ -1,4 +1,4 @@
-import { Settings, User, HeadphonesIcon, HelpCircle, ChevronRight, LogOut } from 'lucide-react';
+import { User, Lock, Users, Store, ChevronRight, LogOut } from 'lucide-react';
 
 export default function Profile() {
   return (
@@ -30,27 +30,27 @@ export default function Profile() {
         <div className="flex items-center justify-between p-5 border-b border-gray-50 active:bg-gray-50 transition-colors cursor-pointer">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-[#f0f1ff] flex items-center justify-center">
-              <Settings size={16} className="text-[#5157a7]" />
+              <Lock size={16} className="text-[#5157a7]" />
             </div>
-            <span className="font-bold text-[15px] text-[#2b3437]">系统设置</span>
+            <span className="font-bold text-[15px] text-[#2b3437]">修改密码</span>
           </div>
           <ChevronRight size={18} className="text-gray-400" />
         </div>
         <div className="flex items-center justify-between p-5 border-b border-gray-50 active:bg-gray-50 transition-colors cursor-pointer">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-[#f0f1ff] flex items-center justify-center">
-              <HeadphonesIcon size={16} className="text-[#5157a7]" />
+              <Users size={16} className="text-[#5157a7]" />
             </div>
-            <span className="font-bold text-[15px] text-[#2b3437]">专属客服</span>
+            <span className="font-bold text-[15px] text-[#2b3437]">员工管理</span>
           </div>
           <ChevronRight size={18} className="text-gray-400" />
         </div>
         <div className="flex items-center justify-between p-5 active:bg-gray-50 transition-colors cursor-pointer">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-[#f0f1ff] flex items-center justify-center">
-              <HelpCircle size={16} className="text-[#5157a7]" />
+              <Store size={16} className="text-[#5157a7]" />
             </div>
-            <span className="font-bold text-[15px] text-[#2b3437]">帮助中心</span>
+            <span className="font-bold text-[15px] text-[#2b3437]">商家画像</span>
           </div>
           <ChevronRight size={18} className="text-gray-400" />
         </div>

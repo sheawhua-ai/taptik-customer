@@ -1,5 +1,4 @@
 import { X, Grid, Sun, Sparkles, CheckCircle2, Camera } from 'lucide-react';
-import HeaderCapsule from './HeaderCapsule';
 
 export default function Scoring({ onNavigate }: { onNavigate: (s: string) => void }) {
   return (
@@ -15,7 +14,6 @@ export default function Scoring({ onNavigate }: { onNavigate: (s: string) => voi
           <div className="w-8 h-8 rounded-full bg-[#e3e9ec] overflow-hidden">
             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgSys75lrxxA608_rF17yPg-Ny8YQUOI6EakLYBx3LiBIUQSi_rTBo1V_sJ2likEFbXTtkJrPcPsYnverfE0X-lqRUzJJtpVtvc3H5owwcs7y-PyTQBk5JjAX9Sa-K9FJCC72z68iU0xJZMQN2gWSq6bZyUfKZv0_el51qoeM1b2WeTanUCjSXGg87ZyI5SuNCEx8wB_PyQ5PQWuEim96pJ4GYMfADd9wdXJsk1gU62qxuLuWHBchZqlH-mMJAPJWYPjQmnkdMmuw" className="w-full h-full object-cover" />
           </div>
-          <HeaderCapsule />
         </div>
       </header>
 

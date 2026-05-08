@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Camera, ShoppingBag, Clock, CheckCircle2, CloudUpload, CheckCircle, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import HeaderCapsule from './HeaderCapsule';
 
 export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: (s: string) => void, onRestrictedAction: (action: () => void) => void }) {
   const [isPlanModalOpen, setIsPlanModalOpen] = useState(false);

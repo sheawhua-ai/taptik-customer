@@ -1,6 +1,5 @@
-import { Bell, LayoutDashboard, Camera, ShoppingBag, Video, MessageCircle, X, Copy, CheckCircle2, Sparkles } from 'lucide-react';
+import { Bell, LayoutDashboard, Camera, ShoppingBag, Video, MessageCircle, X, Copy, CheckCircle2, Sparkles, Eye, Heart, Share, ChevronRight, Zap, Users } from 'lucide-react';
 import { useState } from 'react';
-import HeaderCapsule from './HeaderCapsule';
 
 export default function Dashboard({ onNavigate, onRestrictedAction }: { onNavigate: (s: string) => void, onRestrictedAction: (action: () => void) => void }) {
   const [replyModalOpen, setReplyModalOpen] = useState(false);
@@ -78,10 +77,49 @@ export default function Dashboard({ onNavigate, onRestrictedAction }: { onNaviga
       <section className="bg-[#e0e0ff] rounded-3xl p-6 relative overflow-hidden">
         <div className="relative z-10 space-y-1">
           <h2 className="text-[#444a99] text-2xl font-bold">今日工作台</h2>
-          <p className="text-[#444a99] opacity-80 text-sm">您有 3 项待办笔记发布和 2 条高意向寻货咨询。</p>
+          <p className="text-[#444a99] opacity-80 text-sm">您有 2 条高意向咨询和 1 条重点客诉待处理。</p>
         </div>
         <div className="absolute -right-4 -bottom-4 opacity-10 text-[#444a99]">
           <LayoutDashboard size={120} />
+        </div>
+      </section>
+
+      <section>
+        <div className="flex justify-between items-end mb-2.5">
+          <h2 className="text-xl font-bold tracking-tight text-[#2b3437]">活动全局概览</h2>
+          <span className="text-xs font-semibold text-[#4E54A4]">过去7天</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="bg-white p-3 rounded-xl shadow-sm border border-[#abb3b7]/10">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-medium text-[#605e62]">总曝光</span>
+              <Eye size={14} className="text-[#4E54A4]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-extrabold tracking-tight">128.4k</span>
+              <span className="text-[9px] font-bold text-green-600">+12.5%</span>
+            </div>
+          </div>
+          <div className="bg-white p-3 rounded-xl shadow-sm border border-[#abb3b7]/10">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-medium text-[#605e62]">互动数</span>
+              <Heart size={14} className="text-[#4E54A4] fill-current" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-extrabold tracking-tight">8,932</span>
+              <span className="text-[9px] font-bold text-green-600">+5.2%</span>
+            </div>
+          </div>
+          <div className="bg-white p-3 rounded-xl shadow-sm border border-[#abb3b7]/10">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-medium text-[#605e62]">分享数</span>
+              <Share size={14} className="text-[#4E54A4]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-extrabold tracking-tight">452</span>
+              <span className="text-[9px] font-bold text-[#9e3f4e]">-1.8%</span>
+            </div>
+          </div>
         </div>
       </section>
 

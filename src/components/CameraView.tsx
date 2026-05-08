@@ -1,5 +1,4 @@
 import { FlashlightOff, Hdr, Settings, RefreshCw, X, Sun } from 'lucide-react';
-import HeaderCapsule from './HeaderCapsule';
 
 export default function CameraView({ onNavigate }: { onNavigate: (s: string) => void }) {
   return (
@@ -16,7 +15,6 @@ export default function CameraView({ onNavigate }: { onNavigate: (s: string) => 
           <button className="text-white hover:opacity-80 transition-opacity active:scale-95 duration-150">
             <Settings size={24} />
           </button>
-          <HeaderCapsule dark={true} />
         </div>
       </header>
 

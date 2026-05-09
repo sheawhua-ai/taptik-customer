@@ -6,9 +6,9 @@ export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: 
   const [isPlanModalOpen, setIsPlanModalOpen] = useState(false);
 
   const plans = [
-    { id: '1', title: 'K11 Musea 探店话题素材收集', tag: '视觉陈列部' },
-    { id: '2', title: '劳力士迪通拿新品素材收集', tag: '新媒体部' },
-    { id: '3', title: '海港城门店 VIP 答谢晚宴', tag: '市场公关部' }
+    { id: '1', title: 'K11 Musea 探店话题素材收集' },
+    { id: '2', title: '劳力士迪通拿新品素材收集' },
+    { id: '3', title: '海港城门店 VIP 答谢晚宴' }
   ];
 
   const handleSelectPlan = (planId: string) => {
@@ -67,7 +67,6 @@ export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: 
               <div>
                 <h3 className="text-lg font-bold text-[#2b3437] leading-tight">K11 Musea 探店话题素材收集</h3>
                 <div className="flex gap-2 mt-2">
-                  <span className="bg-[#eaeff1] text-[#586064] text-[11px] px-2 py-0.5 rounded-md font-medium">视觉陈列部</span>
                   <span className="bg-[#eaeff1] text-[#586064] text-[11px] px-2 py-0.5 rounded-md font-medium">执行人：王晓明</span>
                 </div>
               </div>
@@ -145,7 +144,6 @@ export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: 
               <div>
                 <h3 className="text-lg font-bold text-[#2b3437] leading-tight">劳力士迪通拿新品素材收集</h3>
                 <div className="flex gap-2 mt-2">
-                  <span className="bg-[#eaeff1] text-[#586064] text-[11px] px-2 py-0.5 rounded-md font-medium">新媒体部</span>
                   <span className="bg-[#eaeff1] text-[#586064] text-[11px] px-2 py-0.5 rounded-md font-medium">执行人：李美华</span>
                 </div>
               </div>
@@ -237,7 +235,6 @@ export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: 
               <div>
                 <h3 className="text-lg font-bold text-[#2b3437]/70 leading-tight">海港城门店 VIP 答谢晚宴记录</h3>
                 <div className="flex gap-2 mt-2">
-                  <span className="bg-[#e3e9ec] text-[#586064] text-[11px] px-2 py-0.5 rounded-md font-medium">市场公关部</span>
                   <span className="bg-[#e3e9ec] text-[#586064] text-[11px] px-2 py-0.5 rounded-md font-medium">执行人：赵敏</span>
                 </div>
               </div>
@@ -330,9 +327,6 @@ export default function Tasks({ onNavigate, onRestrictedAction }: { onNavigate: 
                     className="w-full text-left bg-white border border-gray-200 p-4 rounded-2xl hover:border-[#5157a7]/50 hover:bg-[#f0f1ff] active:scale-[0.98] transition-all flex flex-col"
                   >
                     <span className="font-bold text-[#2b3437]">{plan.title}</span>
-                    <span className="text-[10px] text-[#5157a7] bg-[#5157a7]/10 px-2 py-0.5 rounded-md mt-2 w-fit">
-                      {plan.tag}
-                    </span>
                   </button>
                 ))}
               </div>
